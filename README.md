@@ -23,3 +23,4 @@ FINAL_URL="${URL/<secret>/$SECRET}"
 
 echo $FINAL_URL
 ~~~
+
