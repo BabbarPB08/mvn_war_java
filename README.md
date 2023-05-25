@@ -1,5 +1,5 @@
 
-# Simple s2i maven project
+# maven project integration with s2i:
 
 Approach "A"
 ~~~
