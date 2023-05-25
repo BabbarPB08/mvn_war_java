@@ -1,3 +1,13 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: test
+  namespace: s2i-test
+spec:
+  lookupPolicy:
+    local: false
+
+---
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
@@ -14,8 +24,8 @@ spec:
       echo "Uploading finished"
   source:
     binary:
-      asFile: target
-    type: Binary
+      asFile: sparkjava-hello-world-1.0.war
+      type: Binary
   strategy:
     sourceStrategy:
       from:
