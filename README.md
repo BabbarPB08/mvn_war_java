@@ -113,6 +113,6 @@ URL=$(oc describe bc test | awk '/Webhook GitHub:/ {getline; print $2}')
 SECRET=$(oc get bc test -o=jsonpath='{.spec.triggers..github.secret}')
 FINAL_URL="${URL/<secret>/$SECRET}"
 
-echo $FINAL_URL
+printf "%s\n$FINAL_URL\n\n"
 ~~~
 
