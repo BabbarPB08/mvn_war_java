@@ -1,0 +1,32 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: test
+  namespace: s2i-test
+spec:
+  completionDeadlineSeconds: 600
+  output:
+    to:
+      kind: ImageStreamTag
+      name: test:latest
+  postCommit:
+    script: |
+      echo "Uploading finished"
+  source:
+    binary:
+      asFile: target
+    type: Binary
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: java:latest
+        namespace: openshift
+    type: Source
+  triggers:
+  - github:
+      secret: SSVl4hBVpIa1NSDoU2Bk
+    type: GitHub
+  - generic:
+      secret: F8skctaonalBRn1sVn_Y
+    type: Generic
