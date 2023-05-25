@@ -24,11 +24,11 @@ git clone https://github.com/BharatBabbar28/mvn_war_java.git
 
 cd mvn_war_java
 
-mvn clean package
+mvn clean package && mv target/*war .
 
 oc new-project s2i-test
 
-oc apply -f BuildConfig.yaml
+oc apply -f is_bc.yaml
 
 oc start-build test
 
