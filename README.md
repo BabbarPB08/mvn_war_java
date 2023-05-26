@@ -26,8 +26,6 @@ cd mvn_war_java
 
 mvn clean package && mv target/*war .
 
-oc new-project s2i-test
-
 oc apply -f is_bc.yaml
 
 oc start-build test
