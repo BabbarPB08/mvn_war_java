@@ -39,7 +39,7 @@ spec:
     sourceStrategy:
       from:
         kind: ImageStreamTag
-        name: jboss-webserver56-openjdk11-tomcat9-openshift-ubi8:5.6.2
+        name: java:8
         namespace: openshift
     type: Source
   triggers:
@@ -49,3 +49,11 @@ spec:
   - generic:
       secret: F8skctaonalBRn1sVn_Y
     type: Generic
+  resources:
+    limits:
+      cpu: "1"
+      memory: 1Gi
+    requests:
+      cpu: 50m
+      memory: 100Mi
+
